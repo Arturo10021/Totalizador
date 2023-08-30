@@ -20,4 +20,9 @@ describe('Ventas', () => {
         let ventas = new Ventas();
         expect(ventas.mostrarImpuesto("CA")).toEqual(0.0825);
       });
+
+    it("Calcular el precio neto", () => {
+    let ventas = new Ventas();
+    expect(ventas.calcularPrecioNeto(5, 25)).toEqual(125);
+    });
 });    
