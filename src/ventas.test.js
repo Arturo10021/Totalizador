@@ -25,4 +25,9 @@ describe('Ventas', () => {
     let ventas = new Ventas();
     expect(ventas.calcularPrecioNeto(5, 25)).toEqual(125);
     });
+
+    it("Calcular la cantidad del impuesto", () => {
+        let ventas = new Ventas();
+        expect(ventas.calcularImpuesto(125, 0.0825)).toEqual(10.3125);
+    });
 });    

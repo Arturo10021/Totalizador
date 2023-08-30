@@ -29,6 +29,10 @@ export class Ventas {
     calcularPrecioNeto(cantidad, precio) {
         return cantidad * precio;
     }
+
+    calcularImpuesto(precioNeto, impuesto) {
+        return precioNeto * impuesto;
+    }
 }
 
 export default Ventas;
