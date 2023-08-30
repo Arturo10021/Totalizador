@@ -6,6 +6,10 @@ export class Ventas {
     precioPorItem(precio) {
         return precio;
     }
+
+    estadoPais(estado) {
+        return estado;
+    }
 }
 
 export default Ventas;

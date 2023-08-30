@@ -10,4 +10,9 @@ describe('Ventas', () => {
         const ventas = new Ventas();
         expect(ventas.precioPorItem(100)).toBe(100);
     });
+
+    it("Mostrar Estado del pais", () => {
+        const ventas = new Ventas();
+        expect(ventas.estadoPais("CA")).toBe("CA");
+    });
 });    
