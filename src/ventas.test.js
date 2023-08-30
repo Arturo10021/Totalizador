@@ -15,4 +15,9 @@ describe('Ventas', () => {
         const ventas = new Ventas();
         expect(ventas.estadoPais("CA")).toBe("CA");
     });
+
+    it("Mostrar impuesto", () => {
+        let ventas = new Ventas();
+        expect(ventas.mostrarImpuesto("CA")).toEqual(0.0825);
+      });
 });    
