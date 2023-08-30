@@ -30,4 +30,9 @@ describe('Ventas', () => {
         let ventas = new Ventas();
         expect(ventas.calcularImpuesto(125, 0.0825)).toEqual(10.3125);
     });
+
+    it("mostrar precio final con descuento para total menor o igual a 1000(3%)", () => {
+        let ventas = new Ventas();
+        expect(ventas.precioFinal(1000, 0.03)).toEqual(970);
+    });
 });    
