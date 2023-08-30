@@ -40,17 +40,18 @@ export class Ventas {
 
     cantidadDescuento(precioNeto, impuesto) {
         let total = precioNeto + impuesto;
+        let descuento = 0;
         if (total >= 1000 && total <= 2999)
-            total = total - total * 0.03;
+            descuento = total * 0.03;
         if (total >= 3000 && total <= 6999)
-            total = total - total * 0.05;
+            descuento = total * 0.05;
         if (total >= 7000 && total <= 9999)
-            total = total - total * 0.07;
-        if (total >= 10000 && total <= 29999)
-            total = total - total * 0.1;
+            descuento = total * 0.07;
+        if (total >= 10000 && total <= 29999)   
+            descuento = total * 0.1;
         if (total >= 30000)
-            total = total - total * 0.15;
-        return total;
+            descuento = total * 0.15;
+        return descuento;
     }
 
     porcentajeDescuento(precioNeto, impuesto) {

@@ -31,18 +31,20 @@ describe('Ventas', () => {
         expect(ventas.calcularImpuesto(125, ventas.mostrarImpuesto("CA"))).toEqual(10.3125);
     });
 
-    it("Mostrar el precio total con el Porcentaje de descuento que corresponde a 1000", () => {
+    it("Mostrar el monto de descuento que corresponde a 1000", () => {
         let ventas = new Ventas();
-        let neto = ventas.calcularPrecioNeto(10, 200);
-        expect(ventas.cantidadDescuento(neto, ventas.calcularImpuesto(neto, ventas.mostrarImpuesto("TX")))).toEqual(2061.25);
+        expect(ventas.cantidadDescuento(ventas.calcularPrecioNeto(5, 200), ventas.calcularImpuesto(1000, ventas.mostrarImpuesto("TX")))).toEqual(31.875);
     });
 
     it("Mostrar Precio total = Precio Neto + Impuesto - Descuento", () => {
         let ventas = new Ventas();
-        expect(ventas.cantidadDescuento(ventas.calcularPrecioNeto(5, 25), ventas.calcularImpuesto(125, ventas.mostrarImpuesto("TX")))).toEqual(132.8125);
+        const neto = ventas.calcularPrecioNeto(5, 200);
+        const impuesto = ventas.calcularImpuesto(1000, ventas.mostrarImpuesto("TX"));
+        const descuento = ventas.cantidadDescuento(neto, impuesto);
+        expect(ventas.precioTotal(neto, impuesto, descuento)).toEqual(1030.625);
     });
     
-    it("Monto descontado", () => {
+    it("Porcentaje descontado", () => {
         let ventas = new Ventas();
         expect(ventas.porcentajeDescuento(ventas.calcularPrecioNeto(5, 250), ventas.calcularImpuesto(1250, ventas.mostrarImpuesto("TX")))).toEqual(0.03);
     });
