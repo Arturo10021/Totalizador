@@ -1,4 +1,4 @@
-import {Ventas} from './ventas.js';
+import Ventas from './ventas.js';
 
 describe('Ventas', () => {
     it("mostrar cantidad de items", () => {
@@ -28,7 +28,7 @@ describe('Ventas', () => {
 
     it("Calcular la cantidad del impuesto", () => {
         let ventas = new Ventas();
-        expect(ventas.calcularImpuesto(125, 0.0825)).toEqual(10.3125);
+        expect(ventas.calcularImpuesto(125, ventas.mostrarImpuesto("CA"))).toEqual(10.3125);
     });
 
     it("Mostrar el precio total con el Porcentaje de descuento que corresponde a 1000", () => {
@@ -39,7 +39,11 @@ describe('Ventas', () => {
 
     it("Mostrar Precio total = Precio Neto + Impuesto - Descuento", () => {
         let ventas = new Ventas();
-        expect(ventas.cantidadDescuento(ventas.calcularPrecioNeto(5, 25), ventas.calcularImpuesto(125, 0.0825))).toEqual(135.3125);
+        expect(ventas.cantidadDescuento(ventas.calcularPrecioNeto(5, 25), ventas.calcularImpuesto(125, ventas.mostrarImpuesto("TX")))).toEqual(132.8125);
     });
     
+    it("Monto descontado", () => {
+        let ventas = new Ventas();
+        expect(ventas.porcentajeDescuento(ventas.calcularPrecioNeto(5, 250), ventas.calcularImpuesto(1250, ventas.mostrarImpuesto("TX")))).toEqual(0.03);
+    });
 });    
